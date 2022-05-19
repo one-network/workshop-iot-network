@@ -1,0 +1,12 @@
+.connectbar {
+    display: flex;
+    margin: 1em;
+}
+
+.connectbar label {
+    margin-right: 0.5em;
+}
+
+.connectbar__connect {
+    margin-left: 0.5em;
+}

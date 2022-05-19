@@ -1,0 +1,60 @@
+version: "3.8"
+
+services:
+  mosquitto:
+    image: "workshop-iotnetwork/mosquitto:${PROJECT_VERSION:-local}"
+    build:
+      context: mosquitto
+    ports:
+      - 9001:9001
+
+  db:
+    image: "postgres:14.2-alpine"
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: "dbuser"
+      POSTGRES_PASSWORD: "weakpassword"
+
+  user-dashboard:
+    image: "workshop-iotnetwork/user-dashboard:${PROJECT_VERSION:-local}"
+    build:
+      context: user-dashboard
+    environment:
+      - JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8091
+      - SPRING_PROFILES_ACTIVE=docker
+    volumes:
+      - "./user-dashboard/target/workshop-iotnetwork-0.0.1-SNAPSHOT.jar:/app/app.jar"
+    depends_on:
+      - mosquitto
+      - db
+    links:
+      - mosquitto
+      - db
+    ports:
+      - 8090:8090
+      - 8091:8091
+
+  data-collector:
+    image: "workshop-iotnetwork/data-collector:${PROJECT_VERSION:-local}"
+    build:
+      context: data-collector
+    volumes:
+      - "./data-collector:/app"
+    ports:
+      - 8080:8080
+
+  nginx:
+    image: "workshop-iotnetwork/nginx:${PROJECT_VERSION:-local}"
+    build:
+      context: nginx
+    ports:
+      - 8443:8443
+    depends_on:
+      - user-dashboard
+      - data-collector
+      - mosquitto
+    links:
+      - user-dashboard
+      - data-collector
+      - mosquitto

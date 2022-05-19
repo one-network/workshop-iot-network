@@ -1,0 +1,24 @@
+camel:
+  springboot:
+    main-run-controller: true
+  component:
+    paho:
+      broker-url: "tcp://mosquitto:5123"
+
+server:
+  port: 8090
+
+spring:
+  datasource:
+    url: "jdbc:postgresql://db:5432/postgres"
+    username: "dbuser"
+    password: "weakpassword"
+  flyway:
+    locations:
+      - "classpath:/db"
+  jpa:
+    open-in-view: false
+
+  devtools:
+    remote:
+      secret: 'mysecret'

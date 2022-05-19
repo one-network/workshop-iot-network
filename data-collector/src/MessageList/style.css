@@ -1,0 +1,10 @@
+.messagelist {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+.messagelist {
+  margin: 0.5em;
+  overflow: auto;
+  flex: 1;
+}

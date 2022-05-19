@@ -1,0 +1,17 @@
+.sendmessage {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.sendmessage__message {
+    border: 0;
+    outline: none;
+    flex: 1;
+    line-height: 3em;
+}
+
+.sendmessage__send {
+    border: 0;
+    padding: 0 2em;
+}
