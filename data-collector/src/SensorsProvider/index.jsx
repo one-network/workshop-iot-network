@@ -8,6 +8,69 @@ function SensorsProvider(props) {
 
   const [locationPermission, setLocationPermission] = useState(null);
   const [sensors, dispatchSensorUpdate] = useReducer(updateSensor, {});
+  const [orientationPermission, setOrientationPermission] = useState(null);
+
+  // ask for permission to use the sensors
+  useEffect(() => {
+    if (typeof orientationPermission !== "boolean") {
+      if (!("permissions" in navigator)) {
+        console.warn("Your browser does not support the permissions API");
+        setOrientationPermission(false);
+        return;
+      }
+
+      try {
+        Promise.all([
+          navigator.permissions.query({ name: "accelerometer" }),
+          navigator.permissions.query({ name: "magnetometer" }),
+          navigator.permissions.query({ name: "gyroscope" }),
+        ]).then((results) => {
+          setOrientationPermission(
+            results.every((result) => result.state === "granted")
+          );
+        });
+      } catch (e) {
+        console.error(e);
+        setOrientationPermission(false);
+      }
+    }
+  }, [orientationPermission]);
+
+  // install orientation sensor listeners
+  useEffect(() => {
+    if (!orientationPermission) {
+      return;
+    }
+
+    const options = { frequency: 60, referenceFrame: "device" };
+    const sensor = new AbsoluteOrientationSensor(options);
+
+    sensor.addEventListener("reading", () => {
+      const [x, y, z, w] = sensor.quaternion;
+
+      dispatchSensorUpdate({
+        type: "orientation",
+        value: {
+          x,
+          y,
+          z,
+          w,
+        },
+      });
+    });
+
+    sensor.addEventListener("error", (error) => {
+      if (error.name == "NotReadableError") {
+        console.log("Sensor is not available.");
+      }
+    });
+
+    sensor.start();
+
+    return () => {
+      sensor.stop();
+    };
+  }, [orientationPermission]);
 
   useEffect(() => {
     if (typeof locationPermission !== "boolean") {
