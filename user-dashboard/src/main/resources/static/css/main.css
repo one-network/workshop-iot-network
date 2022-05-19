@@ -1,0 +1,56 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.map {
+  flex: 1;
+}
+
+.header {
+  background-color: black;
+  left: 0;
+  width: 100%;
+  padding: 1.5em 0;
+}
+
+.header__title {
+  color: white;
+  margin: 0 1em;
+}
+
+.details {
+  max-height: 50%;
+  overflow: auto;
+  margin: 1em;
+}
+
+.device {
+  margin-top: 1em;
+}
+
+.location {
+  margin-top: 1em;
+}
+
+.field {
+  padding: 0.1em;
+}
+
+.field label {
+  font-weight: bold;
+}
+
+.field span {
+  font-family: monospace;
+}

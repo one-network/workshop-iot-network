@@ -1,0 +1,16 @@
+/home/bg/workspace11/workshop-iot-network/user-dashboard/src/main/java/network/one/workshopiotnetwork/domain/DeviceLocation.java
+/home/bg/workspace11/workshop-iot-network/user-dashboard/src/main/java/network/one/workshopiotnetwork/specifications/DeviceSpecifications.java
+/home/bg/workspace11/workshop-iot-network/user-dashboard/src/main/java/network/one/workshopiotnetwork/dto/DeviceInformation.java
+/home/bg/workspace11/workshop-iot-network/user-dashboard/src/main/java/network/one/workshopiotnetwork/dto/TextMessage.java
+/home/bg/workspace11/workshop-iot-network/user-dashboard/src/main/java/network/one/workshopiotnetwork/controller/DeviceController.java
+/home/bg/workspace11/workshop-iot-network/user-dashboard/src/main/java/network/one/workshopiotnetwork/dto/DeviceRef.java
+/home/bg/workspace11/workshop-iot-network/user-dashboard/src/main/java/network/one/workshopiotnetwork/domain/Device.java
+/home/bg/workspace11/workshop-iot-network/user-dashboard/src/main/java/network/one/workshopiotnetwork/mapper/DeviceMapper.java
+/home/bg/workspace11/workshop-iot-network/user-dashboard/src/main/java/network/one/workshopiotnetwork/dto/BoundingBox.java
+/home/bg/workspace11/workshop-iot-network/user-dashboard/src/main/java/network/one/workshopiotnetwork/mapper/LocationMapper.java
+/home/bg/workspace11/workshop-iot-network/user-dashboard/src/main/java/network/one/workshopiotnetwork/dto/SensorsMessage.java
+/home/bg/workspace11/workshop-iot-network/user-dashboard/src/main/java/network/one/workshopiotnetwork/routes/MQTTRoutes.java
+/home/bg/workspace11/workshop-iot-network/user-dashboard/src/main/java/network/one/workshopiotnetwork/WorkshopIotNetworkApplication.java
+/home/bg/workspace11/workshop-iot-network/user-dashboard/src/main/java/network/one/workshopiotnetwork/dto/Location.java
+/home/bg/workspace11/workshop-iot-network/user-dashboard/src/main/java/network/one/workshopiotnetwork/repository/DeviceRepository.java
+/home/bg/workspace11/workshop-iot-network/user-dashboard/src/main/java/network/one/workshopiotnetwork/dto/Message.java

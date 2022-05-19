@@ -1,0 +1,20 @@
+{
+  "folders": [
+    {
+      "path": "user-dashboard"
+    },
+    {
+      "path": "data-collector"
+    },
+    {
+      "path": "mosquitto"
+    },
+    {
+      "path": "nginx"
+    }
+  ],
+  "settings": {
+    "java.dependency.packagePresentation": "hierarchical",
+    "java.configuration.updateBuildConfiguration": "automatic"
+  }
+}

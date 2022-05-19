@@ -1,0 +1,43 @@
+{
+  "name": "workshop-iotnetwork-data-collector",
+  "version": "1.0.0",
+  "description": "Front-end application for the HackerSchool workshop",
+  "private": "true",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf node_modules dist",
+    "watch": "webpack --watch",
+    "start": "webpack serve",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/one-network/workshop-iotnetwork.git"
+  },
+  "author": "one.network",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/one-network/workshop-iotnetwork/issues"
+  },
+  "homepage": "https://github.com/one-network/workshop-iotnetwork#README.md",
+  "devDependencies": {
+    "@babel/core": "^7.17.10",
+    "@babel/node": "^7.17.10",
+    "@babel/preset-env": "^7.17.10",
+    "@babel/preset-react": "^7.16.7",
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.8.1"
+  },
+  "dependencies": {
+    "precompiled-mqtt": "^4.3.13",
+    "prop-types": "^15.8.1",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  }
+}
