@@ -89,7 +89,7 @@ public class Device implements Serializable, Persistable<String> {
             this.orientation.setDevice(this);
         }
     }
-
+    
     public void updateLastSeen() {
         this.setLastSeen(new Date());
     }
@@ -111,20 +111,40 @@ public class Device implements Serializable, Persistable<String> {
     public int hashCode() {
         return getClass().hashCode();
     }
-
+    
     @Override
-    public boolean equals(final Object obj) {
+    public boolean equals(Object obj) {
         if (this == obj)
             return true;
         if (obj == null)
             return false;
         if (getClass() != obj.getClass())
             return false;
-        final Device other = (Device) obj;
+        Device other = (Device) obj;
+        if (lastSeen == null) {
+            if (other.lastSeen != null)
+                return false;
+        } else if (!lastSeen.equals(other.lastSeen))
+            return false;
+        if (location == null) {
+            if (other.location != null)
+                return false;
+        } else if (!location.equals(other.location))
+            return false;
         if (name == null) {
             if (other.name != null)
                 return false;
         } else if (!name.equals(other.name))
+            return false;
+        if (orientation == null) {
+            if (other.orientation != null)
+                return false;
+        } else if (!orientation.equals(other.orientation))
+            return false;
+        if (version == null) {
+            if (other.version != null)
+                return false;
+        } else if (!version.equals(other.version))
             return false;
         return true;
     }
@@ -132,7 +152,7 @@ public class Device implements Serializable, Persistable<String> {
     @Override
     public String toString() {
         return "Device [lastSeen=" + lastSeen + ", location=" + location + ", name=" + name + ", orientation="
-                + orientation + "]";
+                + orientation + ", version=" + version + "]";
     }
 
 }
