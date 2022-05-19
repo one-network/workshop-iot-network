@@ -63,6 +63,7 @@ public class MQTTRoutes extends RouteBuilder {
         });
 
         Optional.ofNullable(message.getLocation()).ifPresent(device::updateLocation);
+        Optional.ofNullable(message.getOrientation()).ifPresent(device::updateOrientation);
         device.updateLastSeen();
 
         deviceRepository.save(device);
