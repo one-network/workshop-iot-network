@@ -29,6 +29,10 @@
     };
   }
 
+  function Orientation(el) {
+    return fieldUpdater(el, "orientation", ["x", "y", "z", "w"]);
+  }
+
   function Location(el) {
     return fieldUpdater(el, "location", [
       "latitude",
@@ -63,11 +67,13 @@
     const statusBar = StatusBar(el.querySelector(".statusbar"));
     const device = Device(el.querySelector(".device"));
     const location = Location(el.querySelector(".location"));
+    const orientation = Orientation(el.querySelector(".orientation"));
 
     return (data) => {
       statusBar(data?.status);
       device(data?.device);
       location(data?.location);
+      orientation(data?.orientation);
     };
   }
 
