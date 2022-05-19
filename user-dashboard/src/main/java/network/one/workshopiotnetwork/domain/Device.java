@@ -37,6 +37,9 @@ public class Device implements Serializable, Persistable<String> {
     @OneToOne(mappedBy = "device", fetch = FetchType.LAZY, orphanRemoval = true, cascade = CascadeType.ALL)
     private DeviceLocation location;
 
+    @OneToOne(mappedBy = "device", fetch = FetchType.LAZY, orphanRemoval = true, cascade = CascadeType.ALL)
+    private DeviceOrientation orientation;
+
     @Override
     public String getId() {
         return name;
@@ -74,7 +77,19 @@ public class Device implements Serializable, Persistable<String> {
             this.location.setDevice(this);
         }
     }
-    
+
+    public DeviceOrientation getOrientation() {
+        return orientation;
+    }
+
+    public void addOrientation(final DeviceOrientation orientation) {
+        this.orientation = orientation;
+
+        if (this.orientation != null) {
+            this.orientation.setDevice(this);
+        }
+    }
+
     public void updateLastSeen() {
         this.setLastSeen(new Date());
     }
@@ -116,7 +131,8 @@ public class Device implements Serializable, Persistable<String> {
 
     @Override
     public String toString() {
-        return "Device [lastSeen=" + lastSeen + ", location=" + location + ", name=" + name + "]";
+        return "Device [lastSeen=" + lastSeen + ", location=" + location + ", name=" + name + ", orientation="
+                + orientation + "]";
     }
 
 }
